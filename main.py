@@ -108,8 +108,9 @@ def get_report(atms: list[ATM]) -> str:
                 f'Link: https://www.tinkoff.ru/maps/atm/'
                 f'?latitude={atm.lat}'
                 f'&longitude={atm.lng}'
-                f'&zoom={config.QUERY_ZOOM}'
-                f'&currency={next(iter(curr.currency for curr in atm.available_cash))}'
+                f'&zoom=15'
+                f'&currency={atm.available_cash[0].currency}'
+                f'&amount={atm.available_cash[0].amount}/'
             ),
         ))
         for atm in atms
